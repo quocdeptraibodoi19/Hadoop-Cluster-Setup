@@ -1,11 +1,11 @@
 #!/bin/bash
 
 source ../cluster-env.sh
-python3 ./configuration/process-xml.py ./configuration/core-site.xml
-python3 ./configuration/process-xml.py ./configuration/hdfs-site.xml
-python3 ./configuration/process-xml.py ./configuration/mapred-site.xml
-python3 ./configuration/process-xml.py ./configuration/yarn-site.xml
-sudo cp ./configuration/*-site.xml $HADOOP_CLUSTER_PATH
+python3 ../Cluster-Configuration/process-xml.py ./Cluster-Configuration/core-site.xml
+python3 ../Cluster-Configuration/process-xml.py ./Cluster-Configuration/hdfs-site.xml
+python3 ../Cluster-Configuration/process-xml.py ./Cluster-Configuration/mapred-site.xml
+python3 ../Cluster-Configuration/process-xml.py ./Cluster-Configuration/yarn-site.xml
+sudo cp ../Cluster-Configuration/*-site.xml $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH
 wget https://archive.apache.org/dist/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz
 sudo tar -xvf hadoop-2.9.0.tar.gz
