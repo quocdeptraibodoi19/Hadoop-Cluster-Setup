@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cat ./cluster-env.sh >> ~/.bashrc
-source ~/.bashrc
+source ./cluster-env.sh
 
 if [ ! -d "$HADOOP_CLUSTER_PATH" ]; then
     mkdir $HADOOP_CLUSTER_PATH
@@ -15,5 +14,7 @@ sudo adduser hadoop
 sudo usermod -aG sudo hadoop
 su hadoop
 
+cat ./cluster-env.sh | sudo tee -a ~/.bashrc
+source ~/.bashrc
 sudo chown -R hadoop:hadoop $(pwd)
 sudo chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH
