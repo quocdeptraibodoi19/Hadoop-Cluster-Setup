@@ -3,18 +3,22 @@
 source ./cluster-env.sh
 
 if [ ! -d "$HADOOP_CLUSTER_PATH" ]; then
-    mkdir $HADOOP_CLUSTER_PATH
-    echo "Creaking a Hadoop Cluster Folder..."
+    sudo mkdir $HADOOP_CLUSTER_PATH
+    echo "Creating a Hadoop Cluster Folder..."
 fi
 
-apt -y update && apt install -y wget openssh-server openjdk-8-jdk python3 sudo
-service ssh restart
+sudo apt -y update && sudo apt install -y wget openssh-server openjdk-8-jdk python3 sudo
+sudo service ssh restart
 
-sudo adduser hadoop
-sudo usermod -aG sudo hadoop
+if ! [ id "hadoop" &> /dev/null ]; then
+  echo "Creating a user for Hadoop Cluster..."
+  sudo adduser hadoop
+  sudo usermod -aG sudo hadoop
+fi
+su hadoop -c "
+    cat ./cluster-env.sh | sudo tee -a ~/.bashrc
+    source ~/.bashrc
+    sudo -S chown -R hadoop:hadoop $(pwd)
+    sudo -S chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH
+"
 su hadoop
-
-cat ./cluster-env.sh | sudo tee -a ~/.bashrc
-source ~/.bashrc
-sudo chown -R hadoop:hadoop $(pwd)
-sudo chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH

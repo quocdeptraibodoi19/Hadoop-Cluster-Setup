@@ -1,7 +1,7 @@
 #! /bin/bash
 
 source ../cluster-env.sh
-python3 ../Cluster-Configuration/process-xml.py ./Cluster-Configuration/zoo.cfg
+python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/zoo.cfg
 sudo cp ../Cluster-Configuration/zoo.cfg $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH
 wget https://archive.apache.org/dist/zookeeper/zookeeper-3.8.3/apache-zookeeper-3.8.3-bin.tar.gz
