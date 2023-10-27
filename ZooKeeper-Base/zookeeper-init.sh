@@ -1,5 +1,6 @@
 #! /bin/bash
 
+# This can be triggered on either of 2 nodes
 source ../cluster-env.sh
 if [ ! -d  "${ZOOKEEPER_HOME}/data" ]; then
     echo "Creating a ZOOKEEPER Cluster Data Folder..."
@@ -11,5 +12,9 @@ if [ ! -d  "${ZOOKEEPER_HOME}/data" ]; then
         sudo -S chown hadoop:hadoop -R ${ZOOKEEPER_HOME}/data"
 fi
 
-zkServer.sh start
+sudo ssh hadoop@$MASTER_NODE "sudo -S service ssh restart && \
+    ${ZOOKEEPER_HOME}/bin/zkServer.sh start"
+sudo ssh hadoop@$SLAVE_NODE "sudo -S service ssh restart && \
+    ${ZOOKEEPER_HOME}/bin/zkServer.sh start"
+
 zkServer.sh status
