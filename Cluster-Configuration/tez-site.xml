@@ -22,4 +22,8 @@
     <name>tez.history.logging.service.class</name>
     <value>org.apache.tez.dag.history.logging.ats.ATSHistoryLoggingService</value>
   </property>
+  <property>
+    <name>tez.simple.history.logging.dir</name>
+    <value>hdfs://${MASTER_NODE}:9001/user/tez/logs</value>
+  </property>
 </configuration>
