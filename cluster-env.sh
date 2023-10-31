@@ -2,12 +2,16 @@
 
 export MASTER_NODE=hadoop-master
 export SLAVE_NODE=hadoop-slave
+export HIVE_METASTORE=mysql-metastore
+export HIVE_METASTORE_DOCKER_NETWORK=hadoop-net
+export HIVE_METASTORE_DB=metastore
+export HIVE_METASTORE_USER=metastore
+export HIVE_METASTORE_PASSWORD=1234
 
 export HADOOP_CLUSTER_PATH=/usr/local/hadoop_cluster
 export ZOOKEEPER_HOME=${HADOOP_CLUSTER_PATH}/zookeeper
 export HBASE_HOME=${HADOOP_CLUSTER_PATH}/hbase
-export KYLIN_HOME=${HADOOP_CLUSTER_PATH}/kylin
-export SPARK_HOME=$KYLIN_HOME/spark
+export SPARK_HOME=$HADOOP_CLUSTER_PATH/spark
 export SPARK_CONF=$SPARK_HOME/conf
 export TEZ_HOME=${HADOOP_CLUSTER_PATH}/tez
 export TEZ_CONF_DIR=$TEZ_HOME/conf
@@ -28,7 +32,7 @@ export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 export HADOOP_HDFS_HOME=$HADOOP_HOME
 export YARN_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export PATH=$PATH:$ZOOKEEPER_HOME/bin:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HIVE_HOME/bin:$KYLIN_HOME/bin:$HBASE_HOME/bin:$HCAT_HOME/bin:$SPARK_HOME/bin
+export PATH=$PATH:$ZOOKEEPER_HOME/bin:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HIVE_HOME/bin:$HBASE_HOME/bin:$HCAT_HOME/bin:$SPARK_HOME/bin
 export HADOOP_INSTALL=$HADOOP_HOME
 export HBASE_CLASSPATH_PREFIX=$HIVE_HOME/lib
 export HBASE_CLASSPATH=$HADOOP_CONF:$HADOOP_HOME/*:$HADOOP_HOME/lib/*:$ZOOKEEPER_HOME/*:$ZOOKEEPER_HOME/lib/*:$HIVE_HOME/*:$HIVE_HOME/lib/*
@@ -41,3 +45,13 @@ else
 fi
 export HADOOP_CLASSPATH=${TEZ_CONF_DIR}:${TEZ_JARS}/*:${TEZ_JARS}/lib/*
 
+export HIVE_LIB=$HIVE_HOME/lib
+CLASSPATH=${CLASSPATH}:${HIVE_LIB}/*.jar
+for f in $HIVE_LIB/*.jar; do
+    CLASSPATH=${CLASSPATH}:$f
+done
+
+# Add Spark JARs to the CLASSPATH
+for f in $SPARK_HOME/jars/*.jar; do
+    CLASSPATH=${CLASSPATH}:$f
+done

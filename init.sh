@@ -14,11 +14,11 @@ if [ ! id "hadoop" &> /dev/null ]; then
   echo "Creating a user for Hadoop Cluster..."
   sudo adduser hadoop
   sudo usermod -aG sudo hadoop
-fi
-su hadoop -c "
+  su hadoop -c "
     cat ./cluster-env.sh | tee -a ~/.bashrc > /dev/null && \
     source ~/.bashrc && \
     sudo -S chown -R hadoop:hadoop $(pwd) && \
     sudo -S chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH
 "
+fi
 su hadoop
