@@ -7,7 +7,7 @@ sudo python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/ma
 sudo python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/yarn-site.xml
 sudo cp ../Cluster-Configuration/*-site.xml $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH
-wget https://archive.apache.org/dist/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz
+sudo wget https://archive.apache.org/dist/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz
 sudo tar -xvf hadoop-2.9.0.tar.gz
 sudo rm hadoop-2.9.0.tar.gz
 sudo ln -s hadoop-2.9.0 hadoop

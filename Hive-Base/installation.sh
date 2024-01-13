@@ -5,7 +5,7 @@ sudo python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/hi
 sudo cp ../Cluster-Configuration/hive-site.xml $HADOOP_CLUSTER_PATH
 sudo cp ../Hadoop-Base/hadoop-init.sh $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH
-wget https://archive.apache.org/dist/hive/hive-2.3.7/apache-hive-2.3.7-bin.tar.gz
+sudo wget https://archive.apache.org/dist/hive/hive-2.3.7/apache-hive-2.3.7-bin.tar.gz
 sudo tar -xvf apache-hive-2.3.7-bin.tar.gz
 sudo ln -s apache-hive-2.3.7-bin hive
 sudo rm apache-hive-2.3.7-bin.tar.gz

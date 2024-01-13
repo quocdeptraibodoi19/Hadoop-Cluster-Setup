@@ -5,7 +5,7 @@ sudo python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/te
 sudo cp ../Cluster-Configuration/tez-site.xml $HADOOP_CLUSTER_PATH
 sudo cp ../Hadoop-Base/hadoop-init.sh $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH
-wget https://downloads.apache.org/tez/0.9.2/apache-tez-0.9.2-bin.tar.gz
+sudo wget https://downloads.apache.org/tez/0.9.2/apache-tez-0.9.2-bin.tar.gz
 sudo tar -xvf apache-tez-0.9.2-bin.tar.gz
 sudo ln -s apache-tez-0.9.2-bin tez
 sudo rm apache-tez-0.9.2-bin.tar.gz

@@ -37,7 +37,7 @@ For the Docker network, I create a new bridge docker network for the system: had
 ```
 4. Set up Hadoop on 2 docker containers:
     1. Enter the 2 docker containers using ```sudo docker exec -it -u root [Container] bash```
-    2. Install git using ``` apt-get -y update && apt-get -y install git sudo ```
+    2. Install git using ``` apt-get -y update && apt-get -y install git sudo nano ```
     3. Clone this into each docker container: ``` git clone https://github.com/quocdeptraibodoi19/Hadoop-Cluster-Setup.git ```
     4. Enter the cloned project: ``` cd Hadoop-Cluster-Setup ```
     5. Setup the Hadoop environment: ``` source cluster-env.sh ```
