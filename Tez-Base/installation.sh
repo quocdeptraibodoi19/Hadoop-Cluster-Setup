@@ -1,7 +1,7 @@
 #! /bin/bash
 
 source ../cluster-env.sh
-python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/tez-site.xml
+sudo python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/tez-site.xml
 sudo cp ../Cluster-Configuration/tez-site.xml $HADOOP_CLUSTER_PATH
 sudo cp ../Hadoop-Base/hadoop-init.sh $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH

@@ -19,7 +19,7 @@ if [ ! -d "./first_init" ]; then
 fi
 sudo service ssh restart
 
-if [ ! id "hadoop" &> /dev/null ]; then
+if ! id "hadoop" &> /dev/null ; then
   echo "Creating a user for Hadoop Cluster..."
   sudo adduser hadoop
   sudo usermod -aG sudo hadoop
