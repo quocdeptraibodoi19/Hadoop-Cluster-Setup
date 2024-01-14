@@ -2,15 +2,16 @@
 
 source ../cluster-env.sh
 sudo -E python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/tez-site.xml
-sudo -E cp ../Cluster-Configuration/tez-site.xml $HADOOP_CLUSTER_PATH
-sudo -E cp ../Hadoop-Base/hadoop-init.sh $HADOOP_CLUSTER_PATH
+sudo cp ../Cluster-Configuration/tez-site.xml $HADOOP_CLUSTER_PATH
+sudo cp ../Hadoop-Base/hadoop-init.sh $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH
-sudo -E wget https://downloads.apache.org/tez/0.9.2/apache-tez-0.9.2-bin.tar.gz
-sudo -E tar -xvf apache-tez-0.9.2-bin.tar.gz
-sudo -E ln -s apache-tez-0.9.2-bin tez
-sudo -E rm apache-tez-0.9.2-bin.tar.gz
+sudo wget https://downloads.apache.org/tez/0.9.2/apache-tez-0.9.2-bin.tar.gz
+sudo tar -xvf apache-tez-0.9.2-bin.tar.gz
+sudo ln -s apache-tez-0.9.2-bin tez
+sudo rm apache-tez-0.9.2-bin.tar.gz
 cd tez
-sudo -E mv $HADOOP_CLUSTER_PATH/tez-site.xml  ./conf
+sudo mv $HADOOP_CLUSTER_PATH/tez-site.xml  ./conf
+sudo -S chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH
 source ../hadoop-init.sh
 hdfs dfs -mkdir /user/tez
 hdfs dfs -mkdir /user/tez/logs
