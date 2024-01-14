@@ -13,7 +13,7 @@ cd tez
 sudo mv $HADOOP_CLUSTER_PATH/tez-site.xml  ./conf
 sudo -S chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH
 source ../hadoop-init.sh
-hdfs dfs -mkdir /user/tez
-hdfs dfs -mkdir /user/tez/logs
+hdfs dfs -mkdir -p /user/tez
+hdfs dfs -mkdir -p /user/tez/logs
 hdfs dfs -chmod g+w /user/tez
 hdfs dfs -put * /user/tez

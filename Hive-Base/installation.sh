@@ -16,9 +16,9 @@ schematool -dbType mysql -initSchema
 sudo -S chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH
 source ../hadoop-init.sh
 hdfs dfsadmin -safemode leave
-hdfs dfs -mkdir /user/
-hdfs dfs -mkdir /user/hive
-hdfs dfs -mkdir /user/hive/warehouse
-hdfs dfs -mkdir /tmp
+hdfs dfs -mkdir -p /user/
+hdfs dfs -mkdir -p /user/hive
+hdfs dfs -mkdir -p /user/hive/warehouse
+hdfs dfs -mkdir -p /tmp
 hdfs dfs -chmod g+w /tmp
 hdfs dfs -chmod g+w /user/hive/warehouse

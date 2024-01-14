@@ -7,6 +7,7 @@ export HIVE_METASTORE_DOCKER_NETWORK=hadoop-net
 export HIVE_METASTORE_DB=metastore
 export HIVE_METASTORE_USER=metastore
 export HIVE_METASTORE_PASSWORD=1234
+export HADDOP_SYS_INSTALLER=/Hadoop-Cluster-Setup
 
 export HADOOP_CLUSTER_PATH=/usr/local/hadoop_cluster
 export ZOOKEEPER_HOME=${HADOOP_CLUSTER_PATH}/zookeeper

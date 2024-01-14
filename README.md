@@ -33,7 +33,10 @@ For the Docker network, I create a new bridge docker network for the system: had
     sudo docker exec -it mysql-metastore mysql -u root -p1234 -e "CREATE DATABASE metastore;"
 ```
 ```
-    sudo docker exec -it mysql-metastore mysql -u root -p1234 -e "GRANT ALL PRIVILEGES ON metastore.* TO '$metastore'@'%';"
+    sudo docker exec -it mysql-metastore mysql -u root -p1234 -e "CREATE USER 'metastore'@'%' identified by '1234';"
+```
+```
+    sudo docker exec -it mysql-metastore mysql -u root -p1234 -e "GRANT ALL PRIVILEGES ON metastore.* TO 'metastore'@'%';"
 ```
 4. Set up Hadoop on 2 docker containers:
     1. Enter the 2 docker containers using ```sudo docker exec -it -u root [Container] bash```
