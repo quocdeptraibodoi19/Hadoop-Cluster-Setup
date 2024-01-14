@@ -7,6 +7,12 @@ if [ ! -d "$HADOOP_CLUSTER_PATH" ]; then
     echo "Creating a Hadoop Cluster Folder..."
 fi
 
+if ! id "hadoop" &> /dev/null ; then
+  echo "Creating a user for Hadoop Cluster..."
+  sudo adduser hadoop
+  sudo usermod -aG sudo hadoop
+fi
+
 if [ ! -d "./first_init" ]; then
   mkdir first_init
   sudo apt -y update && sudo apt install -y wget openssh-server openjdk-8-jdk python3 sudo
@@ -19,9 +25,4 @@ if [ ! -d "./first_init" ]; then
 fi
 sudo service ssh restart
 
-if ! id "hadoop" &> /dev/null ; then
-  echo "Creating a user for Hadoop Cluster..."
-  sudo adduser hadoop
-  sudo usermod -aG sudo hadoop
-fi
 su hadoop
