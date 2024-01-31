@@ -55,7 +55,7 @@ For the Docker network, I create a new bridge docker network for the system: had
     5. Run the init script: ``` source init.sh ```
     6. Distribute SSH keys in the Hadoop Cluster (master node): ``` source ssh_key_distribution.sh ```
     7. Enter Hadoop folder, and then install Hadoop (both nodes) ``` cd $HADDOP_SYS_INSTALLER && cd Hadoop-Base && source installation.sh```
-    8. After installing, initiate the Hadoop Cluster (master node): ``` source hadoop-init.sh ```
+    8. After installing, initiate the Hadoop Cluster (master node): ``` cd $HADDOP_SYS_INSTALLER && cd Hadoop-Base && source hadoop-init.sh ```
     9. Enter Tez folder, and then install Tez (the same node as Hive): ``` cd $HADDOP_SYS_INSTALLER && cd Tez-Base && source installation.sh ```
     10. Enter Hive folder, and then install Hive (the same node as Tez) ``` cd $HADDOP_SYS_INSTALLER && cd Hive-Base && source installation.sh ```
     11. Enter Zookeeper folder, and then install (master node) ``` cd $HADDOP_SYS_INSTALLER && cd ZooKeeper-Base && source installation.sh ```
