@@ -54,5 +54,5 @@ if [ "$presto_env" == "worker" ]; then
     sudo mv presto-cli-0.285.1-executable.jar presto
     sudo chmod +x presto
 fi
-
+sudo ln -s /usr/bin/python3 /usr/bin/python
 sudo -S chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH

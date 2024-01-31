@@ -21,7 +21,7 @@ For the Docker network, I create a new bridge docker network for the system: had
 ```
 2. Create 2 docker containers:
 ```
-    sudo docker run -dit --name hadoop-master --network hadoop-net -p 9870:9870 -p 8001:8001 -p 8080:8080 ubuntu:latest
+    sudo docker run -dit --name hadoop-master --network hadoop-net -p 9870:9870 -p 8001:8001 -p 8080:8080 -p 8081:8081 ubuntu:latest
 ```
 ```
     sudo docker run -dit --name hadoop-slave --network hadoop-net -p 19888:19888 ubuntu:latest
@@ -47,9 +47,9 @@ For the Docker network, I create a new bridge docker network for the system: had
     5. Setup the Hadoop environment: ``` source cluster-env.sh ```
     6. Run the init script: ``` source init.sh ```
     7. Distribute SSH keys in the Hadoop Cluster (master node): ``` source ssh_key_distribution.sh ```
-    8. Enter Hadoop folder, and then install Hadoop (both nodes) ``` cd Hadoop-Base && source installation.sh```
+    8. Enter Hadoop folder, and then install Hadoop (both nodes) ``` cd $HADDOP_SYS_INSTALLER && cd Hadoop-Base && source installation.sh```
     9. After installing, initiate the Hadoop Cluster (master node): ``` source hadoop-init.sh ```
-    10. Enter Tez folder, and then install Tez (the same node as Hive): ``` cd Tez-Base && source installation.sh ```
-    11. Enter Hive folder, and then install Hive (the same node as Tez) ``` cd Hive-Base && source installation.sh ```
-    12. Enter Zookeeper folder, and then install (master node) ``` cd ZooKeeper-Base && source installation.sh ```
-    13. Enter Presto folder, and then install(both nodes) ``` cd Presto-Base && source installation.sh ```
+    10. Enter Tez folder, and then install Tez (the same node as Hive): ``` cd $HADDOP_SYS_INSTALLER && cd Tez-Base && source installation.sh ```
+    11. Enter Hive folder, and then install Hive (the same node as Tez) ``` cd $HADDOP_SYS_INSTALLER && cd Hive-Base && source installation.sh ```
+    12. Enter Zookeeper folder, and then install (master node) ``` cd $HADDOP_SYS_INSTALLER && cd ZooKeeper-Base && source installation.sh ```
+    13. Enter Presto folder, and then install(both nodes) ``` cd $HADDOP_SYS_INSTALLER && cd Presto-Base && source installation.sh ```

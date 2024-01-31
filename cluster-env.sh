@@ -23,7 +23,6 @@ export HIVE_HOME=${HADOOP_CLUSTER_PATH}/hive
 export HIVE_CONF_DIR=$HIVE_HOME/conf
 export HIVE_CONF=$HIVE_CONF_DIR
 export HCAT_HOME=$HIVE_HOME/hcatalog
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 export HADOOP_HOME=${HADOOP_CLUSTER_PATH}/hadoop
 export HADOOP_CONF=$HADOOP_HOME/etc/hadoop
 export HADOOP_ROOT=$HADOOP_HOME

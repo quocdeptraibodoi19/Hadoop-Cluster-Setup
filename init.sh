@@ -1,5 +1,23 @@
 #!/bin/bash
 
+if [ ! -d "./first_init" ]; then
+  while true; do
+      echo "Please input type of OS (mac, or win): "
+      read os_type
+      if [ "$os_type" == "mac" ] || [ "$os_type" = "win" ]; then
+          if [ "$os_type" == "mac" ]; then
+            export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-arm64
+          else
+            export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+          fi
+          echo "export JAVA_HOME=${JAVA_HOME}" | sudo tee -a ./cluster-env.sh
+          break
+      else
+          echo "Invalid input. Please enter either 'mac' or 'win'."
+      fi
+  done
+fi
+
 source ./cluster-env.sh
 
 if [ ! -d "$HADOOP_CLUSTER_PATH" ]; then
