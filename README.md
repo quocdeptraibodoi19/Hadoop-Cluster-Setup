@@ -24,7 +24,7 @@ For the Docker network, I create a new bridge docker network for the system: had
 ```
     sudo docker network create hadoop-net
 ```
-2. Create 2 docker containers:
+2. Create 3 docker containers:
 ```
     sudo docker run -dit --name hadoop-master --network hadoop-net -p 9870:9870 -p 8001:8001 -p 8080:8080 -p 8081:8081 ubuntu:latest
 ```
