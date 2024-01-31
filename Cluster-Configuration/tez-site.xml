@@ -8,7 +8,7 @@
   </property>
   <property>
     <name>tez.tez-ui.history-url.base</name>
-    <value>http://${MASTER_NODE}:8080</value>
+    <value>http://${MASTER_NODE}:8081</value>
   </property>
   <property>
     <name>yarn.timeline-service.enabled</name>
