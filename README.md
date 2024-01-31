@@ -1,16 +1,21 @@
 # Hadoop-Cluster-Setup
-This is the script to automatically setting up the Hadoop system based on 2 Docker containers:
+This is the script to automatically setting up the Hadoop system based on 3 Docker containers:
 - hadoop-master (Ubuntu Docker Base)
 - hadoop-slave (Ubuntu Docker Base)
+- hadoop-client (Ubuntu Docker Base)
 
 Since the system is deployed using Docker so originally we can not access to services provided by the ports in the Docker containers. Therefore, we have to exposed certain ports for the hadoop-master:
-- 9870:9870 - NameNode interface
+- 9870:9870 - NameNode Interface
 - 8001:8001 - ResourceManager Interface
 - 8080:8080 - Presto Interface
 - 8081:8081 - Tez Interface
 
 Those are the ports that we will expose for hadoop-slave:
 - 19888:19888 - MapReduce JobHistory Server Interface (showing logs)
+
+Those are the ports that we will expose for hadoop-client:
+- 8083:8083 - Apache Airflow Interface
+- 8085:8085 - dbt Interface
 
 For the Docker network, I create a new bridge docker network for the system: hadoop-net
 
@@ -25,6 +30,9 @@ For the Docker network, I create a new bridge docker network for the system: had
 ```
 ```
     sudo docker run -dit --name hadoop-slave --network hadoop-net -p 19888:19888 ubuntu:latest
+```
+```
+    sudo docker run -dit --name hadoop-client --network hadoop-net -p 8083:8083 -p 8085:8085 ubuntu:latest
 ```
 3. Set up Hive metastore:
 ```
