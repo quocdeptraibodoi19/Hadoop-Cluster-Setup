@@ -51,9 +51,7 @@ sudo mv -f $HADOOP_CLUSTER_PATH/jvm.config etc
 
 if [ "$presto_env" == "worker" ]; then
     sudo wget https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.285.1/presto-cli-0.285.1-executable.jar
-    sudo tar -xvf presto-cli-0.285.1-executable.jar
-    sudo mv presto-cli-0.285.1-executable presto
-    sudo rm presto-cli-0.285.1-executable.jar
+    sudo mv presto-cli-0.285.1-executable.jar presto
     sudo chmod +x presto
 fi
 
