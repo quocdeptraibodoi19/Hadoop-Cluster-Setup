@@ -10,6 +10,8 @@ export HIVE_METASTORE_PASSWORD=1234
 export HADDOP_SYS_INSTALLER=/Hadoop-Cluster-Setup
 
 export HADOOP_CLUSTER_PATH=/usr/local/hadoop_cluster
+export PRESTO_HOME=${HADOOP_CLUSTER_PATH}/presto
+export PRESTO_DATA_DIR=${HADOOP_CLUSTER_PATH}/presto_data
 export ZOOKEEPER_HOME=${HADOOP_CLUSTER_PATH}/zookeeper
 export HBASE_HOME=${HADOOP_CLUSTER_PATH}/hbase
 export SPARK_HOME=$HADOOP_CLUSTER_PATH/spark
