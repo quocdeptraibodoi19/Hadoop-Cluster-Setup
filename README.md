@@ -25,7 +25,7 @@ For the Docker network, I create a new bridge docker network for the system: had
     sudo docker network create hadoop-net
 ```
 ### Note that:
-     If you are using MacOS with chip M1, please adding `--platform linux/amd64`  when creating docker container.
+If you are using MacOS with chip M1, please adding `--platform linux/amd64`  when creating docker container.
 
 2. Create 3 docker containers:
 ```
