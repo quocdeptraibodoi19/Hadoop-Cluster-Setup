@@ -24,6 +24,9 @@ For the Docker network, I create a new bridge docker network for the system: had
 ```
     sudo docker network create hadoop-net
 ```
+### Note that:
+     If you are using MacOS with chip M1, please adding `--platform linux/amd64`  when creating docker container.
+
 2. Create 3 docker containers:
 ```
     sudo docker run -dit --name hadoop-master --network hadoop-net -p 9870:9870 -p 8001:8001 -p 8080:8080 -p 8081:8081 ubuntu:latest
