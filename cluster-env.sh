@@ -16,6 +16,7 @@ export ZOOKEEPER_HOME=${HADOOP_CLUSTER_PATH}/zookeeper
 export HBASE_HOME=${HADOOP_CLUSTER_PATH}/hbase
 export SPARK_HOME=$HADOOP_CLUSTER_PATH/spark
 export SPARK_CONF=$SPARK_HOME/conf
+export PYSPARK_PYTHON=python3.7
 export TEZ_HOME=${HADOOP_CLUSTER_PATH}/tez
 export TEZ_CONF_DIR=$TEZ_HOME/conf
 export TEZ_JARS=$TEZ_HOME
@@ -25,6 +26,7 @@ export HIVE_CONF=$HIVE_CONF_DIR
 export HCAT_HOME=$HIVE_HOME/hcatalog
 export HADOOP_HOME=${HADOOP_CLUSTER_PATH}/hadoop
 export HADOOP_CONF=$HADOOP_HOME/etc/hadoop
+export HADOOP_CONF_DIR=$HADOOP_CONF
 export HADOOP_ROOT=$HADOOP_HOME
 export HADOOP_BIN_PATH=$HADOOP_HOME/bin
 export HADOOP_LIBEXEC_DIR=$HADOOP_HOME/libexec
@@ -54,3 +56,5 @@ done
 for f in $SPARK_HOME/jars/*.jar; do
     CLASSPATH=${CLASSPATH}:$f
 done
+
+export SPARK_DIST_CLASSPATH=$HADOOP_HOME/etc/hadoop/*:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/hdfs/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/yarn/lib/*:$HADOOP_HOME/share/hadoop/yarn/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*:$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/tools/lib/*

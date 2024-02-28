@@ -15,7 +15,8 @@ fi
 
 if [ ! -d "./first_init" ]; then
   mkdir first_init
-  sudo apt -y update && sudo apt install -y wget openssh-server openjdk-8-jdk python3 sudo
+  sudo apt -y update && sudo apt install -y wget openssh-server openjdk-8-jdk sudo
+  source ./Spark-Base/python-3.7.sh
     su hadoop -c "
     cat ./cluster-env.sh | tee -a ~/.bashrc > /dev/null && \
     source ~/.bashrc && \
