@@ -20,11 +20,11 @@ Those are the ports that we will expose for hadoop-client:
 For the Docker network, I create a new bridge docker network for the system: hadoop-net
 
 ## Version of Cluster's Services:
-- Hadoop: 2.9.0
-- Hive: 2.3.9
-- Tez: 0.8.4
+- Hadoop: 3.3.0
+- Hive: 3.1.2
+- Tez: 0.9.2
 - ZooKeeper: 3.8.3
-- Spark: 3.3.2
+- Spark: 3.3.1
 - Presto: 0.285.1
 - Python: 3.7.17
 

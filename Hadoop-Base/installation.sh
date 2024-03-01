@@ -7,10 +7,10 @@ sudo -E python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration
 sudo -E python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/yarn-site.xml
 sudo cp ../Cluster-Configuration/*-site.xml $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH
-sudo wget https://archive.apache.org/dist/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz
-sudo tar -xvf hadoop-2.9.0.tar.gz
-sudo rm hadoop-2.9.0.tar.gz
-sudo ln -s hadoop-2.9.0 hadoop
+sudo wget https://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz
+sudo tar -xvf hadoop-3.3.0.tar.gz
+sudo rm hadoop-3.3.0.tar.gz
+sudo ln -s hadoop-3.3.0 hadoop
 cd hadoop
 sudo mkdir dn nn
 sudo mv -f $HADOOP_CLUSTER_PATH/*-site.xml etc/hadoop
