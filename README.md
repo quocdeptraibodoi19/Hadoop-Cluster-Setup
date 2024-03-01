@@ -21,10 +21,10 @@ For the Docker network, I create a new bridge docker network for the system: had
 
 ## Version of Cluster's Services:
 - Hadoop: 2.9.0
-- Hive: 2.3.7
-- Tez: 0.9.2
+- Hive: 2.3.9
+- Tez: 0.8.4
 - ZooKeeper: 3.8.3
-- Spark: 2.4.8
+- Spark: 3.3.2
 - Presto: 0.285.1
 - Python: 3.7.17
 
