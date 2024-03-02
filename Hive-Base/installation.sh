@@ -3,7 +3,6 @@
 source ../cluster-env.sh
 sudo -E python3 ../Cluster-Configuration/process-xml.py ../Cluster-Configuration/hive-site.xml
 sudo cp ../Cluster-Configuration/hive-site.xml $HADOOP_CLUSTER_PATH
-sudo cp ../Hadoop-Base/hadoop-init.sh $HADOOP_CLUSTER_PATH
 cd $HADOOP_CLUSTER_PATH
 sudo wget https://downloads.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
 sudo tar -xvf apache-hive-3.1.2-bin.tar.gz
@@ -11,10 +10,12 @@ sudo ln -s apache-hive-3.1.2-bin hive
 sudo rm apache-hive-3.1.2-bin.tar.gz
 cd hive
 sudo mv $HADOOP_CLUSTER_PATH/hive-site.xml  ./conf
+sudo cp $HADOOP_HOME/share/hadoop/common/lib/guava-27.0-jre.jar ./lib
+sudo rm ./lib/guava-19.0.jar
 sudo wget -P ./lib https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
 schematool -dbType mysql -initSchema
 sudo -S chown -R hadoop:hadoop $HADOOP_CLUSTER_PATH
-source ../hadoop-init.sh
+source $HADDOP_SYS_INSTALLER/Hadoop-Base/hadoop-init.sh
 hdfs dfsadmin -safemode leave
 hdfs dfs -mkdir -p /user/
 hdfs dfs -mkdir -p /user/hive
